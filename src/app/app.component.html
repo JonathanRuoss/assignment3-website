@@ -1,0 +1,78 @@
+<mat-toolbar color="primary">
+  <span>Assignment 3</span>
+</mat-toolbar>
+
+<mat-tab-group>
+  <!-- BMI Calculator Tab -->
+  <mat-tab label="BMI Calculator">
+    <div class="tab-inner">
+      <div class="message" *ngIf="bmiCalculatorMessage">{{bmiCalculatorMessage}}</div>
+      <form [formGroup]="bmiCalculatorForm" (ngSubmit)="onBmiCalculatorSubmit(bmiCalculatorForm.value)">
+        <mat-form-field appearance="fill">
+          <mat-label>Height (Feet)</mat-label>
+          <input type="number" formControlName="heightFt" matInput>
+          <span matSuffix>ft</span>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Height (Inches)</mat-label>
+          <input type="number" formControlName="heightIn" matInput>
+          <span matSuffix>in</span>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Weight (Pounds)</mat-label>
+          <input type="number" formControlName="weight" matInput>
+          <span matSuffix>lbs</span>
+        </mat-form-field>
+
+        <br>
+
+        <button type="submit" mat-flat-button color="primary">Calculate BMI</button>
+      </form>
+    </div>
+  </mat-tab>
+
+  <!-- Retirement Calculator Tab -->
+  <mat-tab label="Retirement Calculator">
+    <div class="tab-inner">
+      <div class="message" *ngIf="retirementCalculatorMessage">{{retirementCalculatorMessage}}</div>
+      <form [formGroup]="retirementCalculatorForm" (ngSubmit)="onRetirementCalculatorSubmit(retirementCalculatorForm.value)">
+        <mat-form-field appearance="fill">
+          <mat-label>Current Age</mat-label>
+          <input type="number" formControlName="age" matInput>
+          <span matSuffix>years</span>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Salary (Yearly)</mat-label>
+          <input type="number" formControlName="salary" matInput>
+          <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Percentage Saved</mat-label>
+          <input type="number" formControlName="percentage" matInput>
+          <span matSuffix>%</span>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Savings Goal</mat-label>
+          <input type="number" formControlName="goal" matInput>
+          <span matPrefix>$&nbsp;</span>
+        </mat-form-field>
+
+        <br>
+
+        <button type="submit" mat-flat-button color="primary">Calculate Retirement</button>
+      </form>
+    </div>
+  </mat-tab>
+</mat-tab-group>
